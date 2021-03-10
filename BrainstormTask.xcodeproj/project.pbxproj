@@ -24,6 +24,15 @@
 		F1AC032225F952530049D1FA /* UITableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1AC032025F952530049D1FA /* UITableView+Extension.swift */; };
 		F1AC032325F952530049D1FA /* NSObject+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1AC032125F952530049D1FA /* NSObject+Extension.swift */; };
 		F1AC035725F954400049D1FA /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1AC035625F954400049D1FA /* User.swift */; };
+		F1AC035C25F9565B0049D1FA /* BaseDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1AC035B25F9565B0049D1FA /* BaseDataManager.swift */; };
+		F1AC036525F9573B0049D1FA /* UserSearchResultPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1AC035F25F9573B0049D1FA /* UserSearchResultPresenter.swift */; };
+		F1AC036625F9573B0049D1FA /* UserSearchResultRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1AC036025F9573B0049D1FA /* UserSearchResultRouter.swift */; };
+		F1AC036725F9573B0049D1FA /* UserSearchResultTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1AC036125F9573B0049D1FA /* UserSearchResultTableViewController.swift */; };
+		F1AC036825F9573B0049D1FA /* UserSearchResultProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1AC036225F9573B0049D1FA /* UserSearchResultProtocols.swift */; };
+		F1AC036925F9573B0049D1FA /* UserSearchResultInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1AC036325F9573B0049D1FA /* UserSearchResultInteractor.swift */; };
+		F1AC036F25F957730049D1FA /* UserSearchResultTableViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1AC036E25F957730049D1FA /* UserSearchResultTableViewController.storyboard */; };
+		F1AC037325F957980049D1FA /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1AC037225F957980049D1FA /* Utility.swift */; };
+		F1AEF0F425F958D600B895FF /* UserViewController+Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1AEF0F325F958D600B895FF /* UserViewController+Search.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +57,15 @@
 		F1AC032025F952530049D1FA /* UITableView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+Extension.swift"; sourceTree = "<group>"; };
 		F1AC032125F952530049D1FA /* NSObject+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSObject+Extension.swift"; sourceTree = "<group>"; };
 		F1AC035625F954400049D1FA /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		F1AC035B25F9565B0049D1FA /* BaseDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseDataManager.swift; sourceTree = "<group>"; };
+		F1AC035F25F9573B0049D1FA /* UserSearchResultPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSearchResultPresenter.swift; sourceTree = "<group>"; };
+		F1AC036025F9573B0049D1FA /* UserSearchResultRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSearchResultRouter.swift; sourceTree = "<group>"; };
+		F1AC036125F9573B0049D1FA /* UserSearchResultTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSearchResultTableViewController.swift; sourceTree = "<group>"; };
+		F1AC036225F9573B0049D1FA /* UserSearchResultProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSearchResultProtocols.swift; sourceTree = "<group>"; };
+		F1AC036325F9573B0049D1FA /* UserSearchResultInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSearchResultInteractor.swift; sourceTree = "<group>"; };
+		F1AC036E25F957730049D1FA /* UserSearchResultTableViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UserSearchResultTableViewController.storyboard; sourceTree = "<group>"; };
+		F1AC037225F957980049D1FA /* Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
+		F1AEF0F325F958D600B895FF /* UserViewController+Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserViewController+Search.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +118,8 @@
 		F1AC02E625F950FB0049D1FA /* BrainstormTask */ = {
 			isa = PBXGroup;
 			children = (
+				F1AC037125F957870049D1FA /* Utility */,
+				F1AC035A25F956450049D1FA /* Manager */,
 				F1AC035525F954300049D1FA /* Model */,
 				F1AC030025F951220049D1FA /* Controller */,
 				F1AC02FF25F951180049D1FA /* Font */,
@@ -130,6 +150,8 @@
 		F1AC030025F951220049D1FA /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				F1AC031825F951EA0049D1FA /* Cell */,
+				F1AC035E25F9571D0049D1FA /* UserSearchResult */,
 				F1AC030125F951330049D1FA /* Users */,
 			);
 			path = Controller;
@@ -138,10 +160,10 @@
 		F1AC030125F951330049D1FA /* Users */ = {
 			isa = PBXGroup;
 			children = (
-				F1AC031825F951EA0049D1FA /* Cell */,
 				F1AC030225F951460049D1FA /* UsersPresenter.swift */,
 				F1AC030325F951460049D1FA /* UsersRouter.swift */,
 				F1AC030425F951460049D1FA /* UsersViewController.swift */,
+				F1AEF0F325F958D600B895FF /* UserViewController+Search.swift */,
 				F1AC030525F951460049D1FA /* UsersProtocols.swift */,
 				F1AC030625F951460049D1FA /* UsersInteractor.swift */,
 			);
@@ -175,6 +197,35 @@
 				F1AC035625F954400049D1FA /* User.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		F1AC035A25F956450049D1FA /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				F1AC035B25F9565B0049D1FA /* BaseDataManager.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		F1AC035E25F9571D0049D1FA /* UserSearchResult */ = {
+			isa = PBXGroup;
+			children = (
+				F1AC035F25F9573B0049D1FA /* UserSearchResultPresenter.swift */,
+				F1AC036025F9573B0049D1FA /* UserSearchResultRouter.swift */,
+				F1AC036125F9573B0049D1FA /* UserSearchResultTableViewController.swift */,
+				F1AC036225F9573B0049D1FA /* UserSearchResultProtocols.swift */,
+				F1AC036325F9573B0049D1FA /* UserSearchResultInteractor.swift */,
+				F1AC036E25F957730049D1FA /* UserSearchResultTableViewController.storyboard */,
+			);
+			path = UserSearchResult;
+			sourceTree = "<group>";
+		};
+		F1AC037125F957870049D1FA /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				F1AC037225F957980049D1FA /* Utility.swift */,
+			);
+			path = Utility;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -236,6 +287,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F1AC036F25F957730049D1FA /* UserSearchResultTableViewController.storyboard in Resources */,
 				F1AC031625F951E50049D1FA /* SFProText-Regular.ttf in Resources */,
 				F1AC02F425F950FD0049D1FA /* LaunchScreen.storyboard in Resources */,
 				F1AC02F125F950FD0049D1FA /* Assets.xcassets in Resources */,
@@ -293,15 +345,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F1AEF0F425F958D600B895FF /* UserViewController+Search.swift in Sources */,
+				F1AC036625F9573B0049D1FA /* UserSearchResultRouter.swift in Sources */,
+				F1AC035C25F9565B0049D1FA /* BaseDataManager.swift in Sources */,
+				F1AC037325F957980049D1FA /* Utility.swift in Sources */,
 				F1AC030C25F951460049D1FA /* UsersInteractor.swift in Sources */,
+				F1AC036825F9573B0049D1FA /* UserSearchResultProtocols.swift in Sources */,
 				F1AC02E825F950FB0049D1FA /* AppDelegate.swift in Sources */,
 				F1AC032225F952530049D1FA /* UITableView+Extension.swift in Sources */,
 				F1AC02EA25F950FB0049D1FA /* SceneDelegate.swift in Sources */,
 				F1AC030B25F951460049D1FA /* UsersProtocols.swift in Sources */,
+				F1AC036525F9573B0049D1FA /* UserSearchResultPresenter.swift in Sources */,
+				F1AC036725F9573B0049D1FA /* UserSearchResultTableViewController.swift in Sources */,
 				F1AC032325F952530049D1FA /* NSObject+Extension.swift in Sources */,
 				F1AC031B25F952030049D1FA /* UserTableViewCell.swift in Sources */,
 				F1AC030A25F951460049D1FA /* UsersViewController.swift in Sources */,
 				F1AC030825F951460049D1FA /* UsersPresenter.swift in Sources */,
+				F1AC036925F9573B0049D1FA /* UserSearchResultInteractor.swift in Sources */,
 				F1AC030925F951460049D1FA /* UsersRouter.swift in Sources */,
 				F1AC035725F954400049D1FA /* User.swift in Sources */,
 			);

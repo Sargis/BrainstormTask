@@ -14,10 +14,27 @@ class UsersViewController: UIViewController, UsersViewProtocol {
 
 	var presenter: UsersPresenterProtocol?
 
+    fileprivate var searchController: UISearchController!
+    fileprivate(set) var resultsTableController: UserSearchResultTableViewController!
+    
 	override func viewDidLoad() {
         super.viewDidLoad()
+        self.setup()
     }
 
+    fileprivate func setup() {
+        self.resultsTableController = Utility.instantiate(fromStoryboard: UserSearchResultTableViewController.self)
+        self.searchController = UISearchController(searchResultsController: resultsTableController)
+        self.searchController.searchResultsUpdater = self
+        self.searchController.searchBar.autocapitalizationType = .none
+        self.searchController.searchResultsUpdater = self
+        self.searchController.searchBar.autocapitalizationType = .none
+        self.searchController.searchBar.delegate = self
+        self.navigationItem.searchController = self.searchController
+        self.navigationItem.hidesSearchBarWhenScrolling = false
+        self.definesPresentationContext = true
+        self.extendedLayoutIncludesOpaqueBars = true
+    }
 }
 
 //MARK:- UITableViewDelegate, UITableViewDataSource
