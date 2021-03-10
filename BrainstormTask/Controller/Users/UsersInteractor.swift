@@ -13,4 +13,17 @@ import UIKit
 class UsersInteractor: UsersInteractorInputProtocol {
 
     weak var presenter: UsersInteractorOutputProtocol?
+    
+    func getUserData(_ pageNumber: Int) {
+        
+        let parameters = [
+            "seed" : "brainstorm",
+            "results" : 20,
+            "page" : pageNumber
+        ] as [String : Any]
+        
+        BaseDataManager.shared.request(url: Endpoints.Get.user.url, parameters: parameters) { (json, error) in
+            self.presenter?.rceivedUserData(json, error: error)
+        }
+    }
 }

@@ -11,6 +11,8 @@ import UIKit
 
 class Utility {
     
+    static let inflateAnimator = InflateAnimator()
+    
     static func instantiate<T: UIViewController>(fromStoryboard viewControllerClass : T.Type) -> T {
         let identifier = NSStringFromClass(viewControllerClass).components(separatedBy: ".").last!
         let storyboard = UIStoryboard.init(name: identifier, bundle: nil)

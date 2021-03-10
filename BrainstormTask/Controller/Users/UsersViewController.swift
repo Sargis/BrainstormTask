@@ -10,16 +10,37 @@
 
 import UIKit
 
-class UsersViewController: UIViewController, UsersViewProtocol {
+class UsersViewController: UIViewController {
 
 	var presenter: UsersPresenterProtocol?
 
+    @IBOutlet weak var tableView: UITableView!
     fileprivate var searchController: UISearchController!
     fileprivate(set) var resultsTableController: UserSearchResultTableViewController!
+   
+    var refresher: IQPullToRefresh!
+
     
 	override func viewDidLoad() {
         super.viewDidLoad()
         self.setup()
+        self.setupTableViewInfinity()
+    }
+    
+    fileprivate func setupTableViewInfinity() {
+        self.refresher = IQPullToRefresh.init(scrollView: self.tableView, refresher: self, moreLoader: self)
+        self.refresher.enablePullToRefresh = true
+        self.refresher.enableLoadMore = true
+        
+        self.refresher.refresher?.refreshTriggered(type: .refreshControl, loadingBegin: { (begin) in
+        }, loadingFinished: { (end) in
+        })
+        self.refresher.moreLoader?.loadMoreTriggered(type: .reachAtEnd, loadingBegin: { (bgin) in
+            
+        }, loadingFinished: { (end) in
+            
+        })
+        self.refresher.beginPullToRefreshAnimation()
     }
 
     fileprivate func setup() {
@@ -34,6 +55,12 @@ class UsersViewController: UIViewController, UsersViewProtocol {
         self.navigationItem.hidesSearchBarWhenScrolling = false
         self.definesPresentationContext = true
         self.extendedLayoutIncludesOpaqueBars = true
+        self.tableView.register(cellNib: UserTableViewCell.self)
+    }
+    
+    //MARK:- Actions
+    @IBAction func segmentControlValueChangd(_ sender: UISegmentedControl) {
+        
     }
 }
 
@@ -41,11 +68,53 @@ class UsersViewController: UIViewController, UsersViewProtocol {
 extension UsersViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return self.presenter?.users.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.cell(cell: UserTableViewCell.self, for: indexPath)
+        let user = self.presenter!.users[indexPath.row]
+        cell.update(user)
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 102
+    }
+}
+
+
+extension UsersViewController: Refreshable, MoreLoadable {
+    
+    func refreshTriggered(type: IQPullToRefresh.RefreshType, loadingBegin: @escaping (Bool) -> Void, loadingFinished: @escaping (Bool) -> Void) {
+        loadingBegin(true)
+        self.presenter?.pullToRefreshSwipe()
+    }
+    
+    func loadMoreTriggered(type: IQPullToRefresh.LoadMoreType, loadingBegin: @escaping (Bool) -> Void, loadingFinished: @escaping (Bool) -> Void) {
+        loadingBegin(true)
+        self.presenter?.loadMoreSwipe()
+    }
+    
+    
+}
+
+//MARK:- UsersViewProtocol
+
+extension UsersViewController: UsersViewProtocol {
+    
+    func receivedError(_ error: Error) {
+        //self.refresher.enablePullToRefresh = true
+        self.refresher.endPullToRefreshAnimation()
+        self.refresher.endLoadMoreAnimation()
+        self.presentAlert(error.localizedDescription)
+    }
+    
+    func updateUserList() {
+        //self.refresher.enablePullToRefresh = true
+        self.refresher.endPullToRefreshAnimation()
+        self.refresher.endLoadMoreAnimation()
+        self.tableView.reloadData()
+    }
+    
 }

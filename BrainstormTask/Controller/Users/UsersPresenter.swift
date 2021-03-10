@@ -9,17 +9,55 @@
 //
 
 import UIKit
+import SwiftyJSON
 
-class UsersPresenter: UsersPresenterProtocol, UsersInteractorOutputProtocol {
+class UsersPresenter: UsersPresenterProtocol {
 
     weak private var view: UsersViewProtocol?
     var interactor: UsersInteractorInputProtocol?
     private let router: UsersWireframeProtocol
 
+    var currentPageNumber: Int
+    var users: [User]
+    var savedUsers: [User]
+    
     init(interface: UsersViewProtocol, interactor: UsersInteractorInputProtocol?, router: UsersWireframeProtocol) {
         self.view = interface
         self.interactor = interactor
         self.router = router
+        self.currentPageNumber = 1
+        self.users = []
+        self.savedUsers = []
     }
 
+    func pullToRefreshSwipe() {
+        self.currentPageNumber = 1
+        self.interactor?.getUserData(self.currentPageNumber)
+    }
+    
+    func loadMoreSwipe() {
+        self.currentPageNumber += 1
+        self.interactor?.getUserData(self.currentPageNumber)
+    }
+}
+
+//MARK:- UsersInteractorOutputProtocol
+extension UsersPresenter: UsersInteractorOutputProtocol {
+    
+    func rceivedUserData(_ json: JSON?, error: Error?) {
+        
+        if let json = json {
+            self.view?.updateUserList()
+            let users = json["results"].arrayValue.map({User.init($0)})
+            if self.currentPageNumber == 1 {
+                self.users = users
+            } else {
+                self.users.append(contentsOf: users)
+            }
+        }
+        
+        if let error = error {
+            self.view?.receivedError(error)
+        }
+    }
 }

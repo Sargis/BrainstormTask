@@ -16,7 +16,9 @@ class UsersRouter: UsersWireframeProtocol {
 
     static func createModule() -> UIViewController {
         // Change to get view from storyboard if not using progammatic UI
-        let view = UsersViewController(nibName: nil, bundle: nil)
+        //let view = UsersViewController(nibName: nil, bundle: nil)
+        let storyBoard = UIStoryboard.init(name: "Main", bundle: nil)
+        let view = storyBoard.instantiateViewController(identifier: "UsersViewController") as! UsersViewController
         let interactor = UsersInteractor()
         let router = UsersRouter()
         let presenter = UsersPresenter(interface: view, interactor: interactor, router: router)

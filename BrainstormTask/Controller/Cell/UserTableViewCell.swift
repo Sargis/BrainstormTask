@@ -6,18 +6,24 @@
 //
 
 import UIKit
+import AlamofireImage
 
 class UserTableViewCell: UITableViewCell {
 
-    override func awakeFromNib() {
+    @IBOutlet fileprivate weak var userImageView: UIImageView!
+    @IBOutlet fileprivate weak var userNameLabel: UILabel!
+    @IBOutlet fileprivate weak var userAdditinalInfoLabel: UILabel!
+    
+    override  func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        self.userImageView.layer.cornerRadius = 6
+        self.userImageView.clipsToBounds = true
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    
+    func update(_ user: User) {
+        if let url = user.pictureUrlString.url {
+            self.userImageView.af.setImage(withURL: url)
+        }
     }
     
 }

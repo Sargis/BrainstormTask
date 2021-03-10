@@ -9,6 +9,7 @@
 //
 
 import Foundation
+import SwiftyJSON
 
 //MARK: Wireframe -
 protocol UsersWireframeProtocol: class {
@@ -18,12 +19,18 @@ protocol UsersWireframeProtocol: class {
 protocol UsersPresenterProtocol: class {
 
     var interactor: UsersInteractorInputProtocol? { get set }
+    var users: [User] { get set }
+    var savedUsers: [User] { get set }
+    var currentPageNumber: Int { get set }
+    func pullToRefreshSwipe()
+    func loadMoreSwipe()
 }
 
 //MARK: Interactor -
 protocol UsersInteractorOutputProtocol: class {
 
     /* Interactor -> Presenter */
+    func rceivedUserData(_ json: JSON?, error: Error?)
 }
 
 protocol UsersInteractorInputProtocol: class {
@@ -31,6 +38,7 @@ protocol UsersInteractorInputProtocol: class {
     var presenter: UsersInteractorOutputProtocol?  { get set }
 
     /* Presenter -> Interactor */
+    func getUserData(_ pageNumber: Int)
 }
 
 //MARK: View -
@@ -39,4 +47,6 @@ protocol UsersViewProtocol: class {
     var presenter: UsersPresenterProtocol?  { get set }
 
     /* Presenter -> ViewController */
+    func receivedError(_ error: Error)
+    func updateUserList()
 }

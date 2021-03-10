@@ -29,6 +29,15 @@ class User: Object {
     
     convenience init(_ json: JSON) {
         self.init()
+        self.id = json["login"]["uuid"].stringValue
+        self.pictureUrlString = json["picture"]["thumbnail"].stringValue
+        self.firstName = json["name"]["first"].stringValue
+        self.lastName = json["name"]["last"].stringValue
+        self.gender = json["gender"].stringValue
+        self.phoneNumber = json["phone"].stringValue
+        self.address = "\(json["address"]["country"].stringValue) \(json["address"]["postcode"].stringValue) \(json["address"]["city"].stringValue)"
+        self.lat = json["address"]["coordinates"]["latitude"].doubleValue
+        self.lng = json["address"]["coordinates"]["longitude"].doubleValue
     }
     
     func clone() -> User{

@@ -43,8 +43,14 @@
                                 <segment title="Users"/>
                                 <segment title="Saved Usrs"/>
                             </segments>
+                            <connections>
+                                <action selector="segmentControlValueChangd:" destination="9A2-qa-bQf" eventType="valueChanged" id="Uoh-SA-XjT"/>
+                            </connections>
                         </segmentedControl>
                     </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="BDh-Ze-5Kc" id="htF-CV-b7w"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qJ3-xz-b4K" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -53,7 +59,8 @@
         <!--Navigation Controller-->
         <scene sceneID="qa6-r5-PtE">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="3pv-BJ-90w" sceneMemberID="viewController">
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WAG-qP-tZG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <navigationController storyboardIdentifier="MainNav" automaticallyAdjustsScrollViewInsets="NO" id="3pv-BJ-90w" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="d99-tg-D2G">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -64,7 +71,6 @@
                         <segue destination="9A2-qa-bQf" kind="relationship" relationship="rootViewController" id="mao-Fu-0Hf"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="WAG-qP-tZG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1191.304347826087" y="-811.60714285714278"/>
         </scene>

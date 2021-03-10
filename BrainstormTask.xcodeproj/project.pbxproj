@@ -33,6 +33,19 @@
 		F1AC036F25F957730049D1FA /* UserSearchResultTableViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1AC036E25F957730049D1FA /* UserSearchResultTableViewController.storyboard */; };
 		F1AC037325F957980049D1FA /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1AC037225F957980049D1FA /* Utility.swift */; };
 		F1AEF0F425F958D600B895FF /* UserViewController+Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1AEF0F325F958D600B895FF /* UserViewController+Search.swift */; };
+		F1AEF12625F95DEE00B895FF /* Endpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1AEF12525F95DEE00B895FF /* Endpoints.swift */; };
+		F1AEF13125F960E400B895FF /* IQPullToRefresh+LoadMore.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1AEF12B25F960E400B895FF /* IQPullToRefresh+LoadMore.swift */; };
+		F1AEF13225F960E400B895FF /* IQPullToRefresh+Refresh.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1AEF12C25F960E400B895FF /* IQPullToRefresh+Refresh.swift */; };
+		F1AEF13325F960E400B895FF /* IQPullToRefresh.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1AEF12D25F960E400B895FF /* IQPullToRefresh.swift */; };
+		F1AEF13425F960E400B895FF /* IQAnimatableRefresh.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1AEF12E25F960E400B895FF /* IQAnimatableRefresh.swift */; };
+		F1AEF13525F960E400B895FF /* IQRefreshIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1AEF12F25F960E400B895FF /* IQRefreshIndicatorView.swift */; };
+		F1AEF13625F960E400B895FF /* UIRefreshControl+IQAnimatableRefresh.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1AEF13025F960E400B895FF /* UIRefreshControl+IQAnimatableRefresh.swift */; };
+		F1AEF13C25F9673E00B895FF /* AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1AEF13A25F9673E00B895FF /* AlertController.swift */; };
+		F1AEF13D25F9673E00B895FF /* AlertView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1AEF13B25F9673E00B895FF /* AlertView.xib */; };
+		F1AEF14125F9676900B895FF /* InflateAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1AEF14025F9676900B895FF /* InflateAnimator.swift */; };
+		F1AEF14525F9679800B895FF /* InflateAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1AEF14425F9679800B895FF /* InflateAnimation.swift */; };
+		F1AEF14825F967E100B895FF /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1AEF14725F967E100B895FF /* UIViewController+Extension.swift */; };
+		F1AEF14B25F96DE600B895FF /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1AEF14A25F96DE600B895FF /* String+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,6 +79,19 @@
 		F1AC036E25F957730049D1FA /* UserSearchResultTableViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UserSearchResultTableViewController.storyboard; sourceTree = "<group>"; };
 		F1AC037225F957980049D1FA /* Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
 		F1AEF0F325F958D600B895FF /* UserViewController+Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserViewController+Search.swift"; sourceTree = "<group>"; };
+		F1AEF12525F95DEE00B895FF /* Endpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoints.swift; sourceTree = "<group>"; };
+		F1AEF12B25F960E400B895FF /* IQPullToRefresh+LoadMore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "IQPullToRefresh+LoadMore.swift"; sourceTree = "<group>"; };
+		F1AEF12C25F960E400B895FF /* IQPullToRefresh+Refresh.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "IQPullToRefresh+Refresh.swift"; sourceTree = "<group>"; };
+		F1AEF12D25F960E400B895FF /* IQPullToRefresh.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IQPullToRefresh.swift; sourceTree = "<group>"; };
+		F1AEF12E25F960E400B895FF /* IQAnimatableRefresh.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IQAnimatableRefresh.swift; sourceTree = "<group>"; };
+		F1AEF12F25F960E400B895FF /* IQRefreshIndicatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IQRefreshIndicatorView.swift; sourceTree = "<group>"; };
+		F1AEF13025F960E400B895FF /* UIRefreshControl+IQAnimatableRefresh.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIRefreshControl+IQAnimatableRefresh.swift"; sourceTree = "<group>"; };
+		F1AEF13A25F9673E00B895FF /* AlertController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertController.swift; sourceTree = "<group>"; };
+		F1AEF13B25F9673E00B895FF /* AlertView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AlertView.xib; sourceTree = "<group>"; };
+		F1AEF14025F9676900B895FF /* InflateAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InflateAnimator.swift; sourceTree = "<group>"; };
+		F1AEF14425F9679800B895FF /* InflateAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InflateAnimation.swift; sourceTree = "<group>"; };
+		F1AEF14725F967E100B895FF /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
+		F1AEF14A25F96DE600B895FF /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +161,8 @@
 			children = (
 				F1AC032125F952530049D1FA /* NSObject+Extension.swift */,
 				F1AC032025F952530049D1FA /* UITableView+Extension.swift */,
+				F1AEF14A25F96DE600B895FF /* String+Extension.swift */,
+				F1AEF14725F967E100B895FF /* UIViewController+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -195,6 +223,7 @@
 			isa = PBXGroup;
 			children = (
 				F1AC035625F954400049D1FA /* User.swift */,
+				F1AEF12525F95DEE00B895FF /* Endpoints.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -223,9 +252,43 @@
 		F1AC037125F957870049D1FA /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				F1AEF13F25F9675E00B895FF /* Animator */,
+				F1AEF13925F9673200B895FF /* Alert */,
 				F1AC037225F957980049D1FA /* Utility.swift */,
+				F1AEF12A25F960E400B895FF /* IQPullToRefresh */,
 			);
 			path = Utility;
+			sourceTree = "<group>";
+		};
+		F1AEF12A25F960E400B895FF /* IQPullToRefresh */ = {
+			isa = PBXGroup;
+			children = (
+				F1AEF12B25F960E400B895FF /* IQPullToRefresh+LoadMore.swift */,
+				F1AEF12C25F960E400B895FF /* IQPullToRefresh+Refresh.swift */,
+				F1AEF12D25F960E400B895FF /* IQPullToRefresh.swift */,
+				F1AEF12E25F960E400B895FF /* IQAnimatableRefresh.swift */,
+				F1AEF12F25F960E400B895FF /* IQRefreshIndicatorView.swift */,
+				F1AEF13025F960E400B895FF /* UIRefreshControl+IQAnimatableRefresh.swift */,
+			);
+			path = IQPullToRefresh;
+			sourceTree = "<group>";
+		};
+		F1AEF13925F9673200B895FF /* Alert */ = {
+			isa = PBXGroup;
+			children = (
+				F1AEF13A25F9673E00B895FF /* AlertController.swift */,
+				F1AEF13B25F9673E00B895FF /* AlertView.xib */,
+			);
+			path = Alert;
+			sourceTree = "<group>";
+		};
+		F1AEF13F25F9675E00B895FF /* Animator */ = {
+			isa = PBXGroup;
+			children = (
+				F1AEF14025F9676900B895FF /* InflateAnimator.swift */,
+				F1AEF14425F9679800B895FF /* InflateAnimation.swift */,
+			);
+			path = Animator;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -287,6 +350,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F1AEF13D25F9673E00B895FF /* AlertView.xib in Resources */,
 				F1AC036F25F957730049D1FA /* UserSearchResultTableViewController.storyboard in Resources */,
 				F1AC031625F951E50049D1FA /* SFProText-Regular.ttf in Resources */,
 				F1AC02F425F950FD0049D1FA /* LaunchScreen.storyboard in Resources */,
@@ -346,24 +410,36 @@
 			buildActionMask = 2147483647;
 			files = (
 				F1AEF0F425F958D600B895FF /* UserViewController+Search.swift in Sources */,
+				F1AEF13525F960E400B895FF /* IQRefreshIndicatorView.swift in Sources */,
 				F1AC036625F9573B0049D1FA /* UserSearchResultRouter.swift in Sources */,
 				F1AC035C25F9565B0049D1FA /* BaseDataManager.swift in Sources */,
+				F1AEF13225F960E400B895FF /* IQPullToRefresh+Refresh.swift in Sources */,
 				F1AC037325F957980049D1FA /* Utility.swift in Sources */,
 				F1AC030C25F951460049D1FA /* UsersInteractor.swift in Sources */,
+				F1AEF14B25F96DE600B895FF /* String+Extension.swift in Sources */,
+				F1AEF13125F960E400B895FF /* IQPullToRefresh+LoadMore.swift in Sources */,
 				F1AC036825F9573B0049D1FA /* UserSearchResultProtocols.swift in Sources */,
+				F1AEF14525F9679800B895FF /* InflateAnimation.swift in Sources */,
 				F1AC02E825F950FB0049D1FA /* AppDelegate.swift in Sources */,
+				F1AEF14125F9676900B895FF /* InflateAnimator.swift in Sources */,
+				F1AEF13325F960E400B895FF /* IQPullToRefresh.swift in Sources */,
 				F1AC032225F952530049D1FA /* UITableView+Extension.swift in Sources */,
+				F1AEF13425F960E400B895FF /* IQAnimatableRefresh.swift in Sources */,
 				F1AC02EA25F950FB0049D1FA /* SceneDelegate.swift in Sources */,
 				F1AC030B25F951460049D1FA /* UsersProtocols.swift in Sources */,
 				F1AC036525F9573B0049D1FA /* UserSearchResultPresenter.swift in Sources */,
+				F1AEF14825F967E100B895FF /* UIViewController+Extension.swift in Sources */,
 				F1AC036725F9573B0049D1FA /* UserSearchResultTableViewController.swift in Sources */,
 				F1AC032325F952530049D1FA /* NSObject+Extension.swift in Sources */,
 				F1AC031B25F952030049D1FA /* UserTableViewCell.swift in Sources */,
+				F1AEF13C25F9673E00B895FF /* AlertController.swift in Sources */,
 				F1AC030A25F951460049D1FA /* UsersViewController.swift in Sources */,
 				F1AC030825F951460049D1FA /* UsersPresenter.swift in Sources */,
+				F1AEF13625F960E400B895FF /* UIRefreshControl+IQAnimatableRefresh.swift in Sources */,
 				F1AC036925F9573B0049D1FA /* UserSearchResultInteractor.swift in Sources */,
 				F1AC030925F951460049D1FA /* UsersRouter.swift in Sources */,
 				F1AC035725F954400049D1FA /* User.swift in Sources */,
+				F1AEF12625F95DEE00B895FF /* Endpoints.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
