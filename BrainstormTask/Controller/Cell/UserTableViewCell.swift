@@ -10,8 +10,8 @@ import AlamofireImage
 
 class UserTableViewCell: UITableViewCell {
 
+    @IBOutlet fileprivate weak var userFullNameLabel: UILabel!
     @IBOutlet fileprivate weak var userImageView: UIImageView!
-    @IBOutlet fileprivate weak var userNameLabel: UILabel!
     @IBOutlet fileprivate weak var userAdditinalInfoLabel: UILabel!
     
     override  func awakeFromNib() {
@@ -24,6 +24,9 @@ class UserTableViewCell: UITableViewCell {
         if let url = user.pictureUrlString.url {
             self.userImageView.af.setImage(withURL: url)
         }
+        self.userFullNameLabel.text = "\(user.firstName) \(user.lastName)"
+        self.userAdditinalInfoLabel.text = "\(user.gender), \(user.phoneNumber)\n\(user.address)"
+        self.userAdditinalInfoLabel.sizeToFit()
     }
     
 }

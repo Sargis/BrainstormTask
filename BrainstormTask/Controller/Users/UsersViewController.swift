@@ -15,12 +15,11 @@ class UsersViewController: UIViewController {
 	var presenter: UsersPresenterProtocol?
 
     @IBOutlet weak var tableView: UITableView!
+    
     fileprivate var searchController: UISearchController!
+    fileprivate var refresher: IQPullToRefresh!
     fileprivate(set) var resultsTableController: UserSearchResultTableViewController!
    
-    var refresher: IQPullToRefresh!
-
-    
 	override func viewDidLoad() {
         super.viewDidLoad()
         self.setup()
@@ -95,8 +94,6 @@ extension UsersViewController: Refreshable, MoreLoadable {
         loadingBegin(true)
         self.presenter?.loadMoreSwipe()
     }
-    
-    
 }
 
 //MARK:- UsersViewProtocol
@@ -104,14 +101,12 @@ extension UsersViewController: Refreshable, MoreLoadable {
 extension UsersViewController: UsersViewProtocol {
     
     func receivedError(_ error: Error) {
-        //self.refresher.enablePullToRefresh = true
         self.refresher.endPullToRefreshAnimation()
         self.refresher.endLoadMoreAnimation()
         self.presentAlert(error.localizedDescription)
     }
     
     func updateUserList() {
-        //self.refresher.enablePullToRefresh = true
         self.refresher.endPullToRefreshAnimation()
         self.refresher.endLoadMoreAnimation()
         self.tableView.reloadData()
