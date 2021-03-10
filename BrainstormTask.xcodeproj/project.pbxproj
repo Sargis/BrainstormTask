@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -23,6 +23,7 @@
 		F1AC031C25F952030049D1FA /* UserTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1AC031A25F952030049D1FA /* UserTableViewCell.xib */; };
 		F1AC032225F952530049D1FA /* UITableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1AC032025F952530049D1FA /* UITableView+Extension.swift */; };
 		F1AC032325F952530049D1FA /* NSObject+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1AC032125F952530049D1FA /* NSObject+Extension.swift */; };
+		F1AC035725F954400049D1FA /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1AC035625F954400049D1FA /* User.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,7 @@
 		F1AC031A25F952030049D1FA /* UserTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserTableViewCell.xib; sourceTree = "<group>"; };
 		F1AC032025F952530049D1FA /* UITableView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+Extension.swift"; sourceTree = "<group>"; };
 		F1AC032125F952530049D1FA /* NSObject+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSObject+Extension.swift"; sourceTree = "<group>"; };
+		F1AC035625F954400049D1FA /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,7 +68,6 @@
 				728EFCECB96D6D9B540515F5 /* Pods-BrainstormTask.debug.xcconfig */,
 				451845807F6E1470B20762E6 /* Pods-BrainstormTask.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -99,6 +100,7 @@
 		F1AC02E625F950FB0049D1FA /* BrainstormTask */ = {
 			isa = PBXGroup;
 			children = (
+				F1AC035525F954300049D1FA /* Model */,
 				F1AC030025F951220049D1FA /* Controller */,
 				F1AC02FF25F951180049D1FA /* Font */,
 				F1AC02FD25F951110049D1FA /* Extension */,
@@ -165,6 +167,14 @@
 				F1AC031A25F952030049D1FA /* UserTableViewCell.xib */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		F1AC035525F954300049D1FA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F1AC035625F954400049D1FA /* User.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -293,6 +303,7 @@
 				F1AC030A25F951460049D1FA /* UsersViewController.swift in Sources */,
 				F1AC030825F951460049D1FA /* UsersPresenter.swift in Sources */,
 				F1AC030925F951460049D1FA /* UsersRouter.swift in Sources */,
+				F1AC035725F954400049D1FA /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
