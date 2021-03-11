@@ -13,7 +13,7 @@ import SwiftyJSON
 
 //MARK: Wireframe -
 protocol UsersWireframeProtocol: class {
-
+    func pushToUserDtail(_ user: User)
 }
 //MARK: Presenter -
 protocol UsersPresenterProtocol: class {
@@ -22,8 +22,10 @@ protocol UsersPresenterProtocol: class {
     var users: [User] { get set }
     var savedUsers: [User] { get set }
     var currentPageNumber: Int { get set }
+    
     func pullToRefreshSwipe()
     func loadMoreSwipe()
+    func didSelect(_ index: Int)
 }
 
 //MARK: Interactor -

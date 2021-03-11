@@ -28,4 +28,9 @@ class UsersRouter: UsersWireframeProtocol {
 
         return view
     }
+    
+    func pushToUserDtail(_ user: User) {
+        let userDetailRouter = UserDetailRouter.createModule(user)
+        self.viewController?.navigationController?.pushViewController(userDetailRouter, animated: true)
+    }
 }

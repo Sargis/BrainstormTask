@@ -39,6 +39,10 @@ class UsersPresenter: UsersPresenterProtocol {
         self.currentPageNumber += 1
         self.interactor?.getUserData(self.currentPageNumber)
     }
+    
+    func didSelect(_ index: Int) {
+        self.router.pushToUserDtail(self.users[index])
+    }
 }
 
 //MARK:- UsersInteractorOutputProtocol

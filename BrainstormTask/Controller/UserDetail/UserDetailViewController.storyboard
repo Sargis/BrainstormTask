@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="SFProText-Regular.ttf">
+            <string>SFProText-Regular</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--User Detail View Controller-->
+        <scene sceneID="FJQ-ra-w0p">
+            <objects>
+                <viewController storyboardIdentifier="UserDetailViewController" id="pm1-03-fYl" customClass="UserDetailViewController" customModule="BrainstormTask" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="LQo-Va-XXV">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="yXe-kb-X5j">
+                                <rect key="frame" x="0.0" y="44" width="414" height="193"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="193" id="y9H-E0-bhu"/>
+                                </constraints>
+                            </mapView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="OfU-Bs-of1">
+                                <rect key="frame" x="147" y="177" width="120" height="120"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="120" id="mUj-LG-ewc"/>
+                                    <constraint firstAttribute="width" constant="120" id="xGp-PC-w6t"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cn9-1B-LMh">
+                                <rect key="frame" x="16" y="317" width="382" height="24"/>
+                                <fontDescription key="fontDescription" name="SFProText-Regular" family="SF Pro Text" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YQ6-YO-76x">
+                                <rect key="frame" x="16" y="353" width="382" height="14.5"/>
+                                <fontDescription key="fontDescription" name="SFProText-Regular" family="SF Pro Text" pointSize="12"/>
+                                <color key="textColor" red="0.56470588235294117" green="0.61568627450980395" blue="0.65098039215686276" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Bbz-vw-mye">
+                                <rect key="frame" x="82" y="658" width="250" height="144"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OGM-Ue-nBv">
+                                        <rect key="frame" x="0.0" y="0.0" width="250" height="48"/>
+                                        <fontDescription key="fontDescription" name="SFProText-Regular" family="SF Pro Text" pointSize="16"/>
+                                        <state key="normal" title="Save user">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="saveUserButtonTapped:" destination="pm1-03-fYl" eventType="touchUpInside" id="W7g-dl-u1f"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Saved user" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sZj-XO-BwD">
+                                        <rect key="frame" x="0.0" y="48" width="250" height="48"/>
+                                        <color key="backgroundColor" red="0.90980392156862744" green="0.90980392156862744" blue="0.90980392156862744" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="48" id="C7b-zR-KJV"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="SFProText-Regular" family="SF Pro Text" pointSize="16"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DoX-Vv-E2t">
+                                        <rect key="frame" x="0.0" y="96" width="250" height="48"/>
+                                        <fontDescription key="fontDescription" name="SFProText-Regular" family="SF Pro Text" pointSize="17"/>
+                                        <state key="normal" title="Remove user">
+                                            <color key="titleColor" red="0.92156862745098034" green="0.3411764705882353" blue="0.3411764705882353" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="removeUserButtonTapped:" destination="pm1-03-fYl" eventType="touchUpInside" id="Ham-5Q-NMf"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="250" id="5ax-v5-mDk"/>
+                                    <constraint firstItem="sZj-XO-BwD" firstAttribute="height" secondItem="DoX-Vv-E2t" secondAttribute="height" id="Hnh-bH-9xB"/>
+                                    <constraint firstItem="sZj-XO-BwD" firstAttribute="height" secondItem="OGM-Ue-nBv" secondAttribute="height" id="d1E-ER-80b"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="4pM-4A-ZH1"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="yXe-kb-X5j" firstAttribute="top" secondItem="4pM-4A-ZH1" secondAttribute="top" id="4GN-pG-AJG"/>
+                            <constraint firstItem="YQ6-YO-76x" firstAttribute="leading" secondItem="Cn9-1B-LMh" secondAttribute="leading" id="9OK-Zs-zh6"/>
+                            <constraint firstItem="YQ6-YO-76x" firstAttribute="trailing" secondItem="Cn9-1B-LMh" secondAttribute="trailing" id="EZ0-ZJ-bkZ"/>
+                            <constraint firstItem="4pM-4A-ZH1" firstAttribute="bottom" secondItem="Bbz-vw-mye" secondAttribute="bottom" constant="60" id="RSf-NA-14s"/>
+                            <constraint firstItem="4pM-4A-ZH1" firstAttribute="trailing" secondItem="yXe-kb-X5j" secondAttribute="trailing" id="Sbz-f4-hhD"/>
+                            <constraint firstItem="YQ6-YO-76x" firstAttribute="top" secondItem="Cn9-1B-LMh" secondAttribute="bottom" constant="12" id="WAg-bl-FX4"/>
+                            <constraint firstItem="OfU-Bs-of1" firstAttribute="centerX" secondItem="yXe-kb-X5j" secondAttribute="centerX" id="gmC-g6-GvG"/>
+                            <constraint firstItem="yXe-kb-X5j" firstAttribute="leading" secondItem="4pM-4A-ZH1" secondAttribute="leading" id="m5m-Vc-oTR"/>
+                            <constraint firstItem="OfU-Bs-of1" firstAttribute="centerY" secondItem="yXe-kb-X5j" secondAttribute="bottom" id="rOL-dB-pAx"/>
+                            <constraint firstItem="Bbz-vw-mye" firstAttribute="centerX" secondItem="4pM-4A-ZH1" secondAttribute="centerX" id="rds-mm-P5B"/>
+                            <constraint firstItem="Cn9-1B-LMh" firstAttribute="leading" secondItem="4pM-4A-ZH1" secondAttribute="leading" constant="16" id="uDE-fV-v5J"/>
+                            <constraint firstItem="Cn9-1B-LMh" firstAttribute="top" secondItem="OfU-Bs-of1" secondAttribute="bottom" constant="20" id="v1T-9g-wrA"/>
+                            <constraint firstItem="4pM-4A-ZH1" firstAttribute="trailing" secondItem="Cn9-1B-LMh" secondAttribute="trailing" constant="16" id="v9f-0O-Vc9"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="mapView" destination="yXe-kb-X5j" id="0mW-GO-TJl"/>
+                        <outlet property="removeUserButton" destination="DoX-Vv-E2t" id="Ftg-2T-2Ul"/>
+                        <outlet property="savdUserLabel" destination="sZj-XO-BwD" id="I1E-wy-jbe"/>
+                        <outlet property="saveUserButton" destination="OGM-Ue-nBv" id="I8L-Vd-iSZ"/>
+                        <outlet property="userAdditionalLabel" destination="YQ6-YO-76x" id="lw2-kG-vuX"/>
+                        <outlet property="userImageView" destination="OfU-Bs-of1" id="DRr-G5-nWt"/>
+                        <outlet property="userNameLabel" destination="Cn9-1B-LMh" id="pIt-T9-96X"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lok-ty-dOa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1.4492753623188408" y="132.58928571428572"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

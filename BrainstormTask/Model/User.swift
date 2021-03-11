@@ -22,6 +22,11 @@ class User: Object {
     dynamic var lat: Double = 0
     dynamic var lng: Double = 0
     
+    var isSaved: Bool {
+        let realm = try! Realm.init()
+        let user = realm.objects(User.self).filter(NSPredicate.init(format: "id == %@", self.id)).first
+        return user != nil
+    }
     override class func primaryKey() -> String? {
         return "id"
     }
@@ -52,5 +57,21 @@ class User: Object {
         user.lat = self.lat
         user.lng = self.lng
         return user
+    }
+    
+    func setSavedUser() {
+        let realm = try! Realm()
+        try! realm.safeWrite {
+            realm.create(User.self, value: self, update: .all)
+        }
+    }
+    
+    func removFromSavedUser() {
+        let realm = try! Realm()
+        if let temp = realm.objects(User.self).filter(NSPredicate.init(format: "id == %@", self.id)).first{
+            try? realm.safeWrite {
+                realm.delete(temp)
+            }
+        }
     }
 }

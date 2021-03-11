@@ -43,6 +43,7 @@ class UsersViewController: UIViewController {
     }
 
     fileprivate func setup() {
+        self.navigationItem.title = "Users"
         self.resultsTableController = Utility.instantiate(fromStoryboard: UserSearchResultTableViewController.self)
         self.searchController = UISearchController(searchResultsController: resultsTableController)
         self.searchController.searchResultsUpdater = self
@@ -79,6 +80,10 @@ extension UsersViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 102
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.presenter?.didSelect(indexPath.row)
     }
 }
 
