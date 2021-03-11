@@ -10,6 +10,7 @@
 
 import Foundation
 import SwiftyJSON
+import RealmSwift
 
 //MARK: Wireframe -
 protocol UsersWireframeProtocol: class {
@@ -20,13 +21,14 @@ protocol UsersPresenterProtocol: class {
 
     var interactor: UsersInteractorInputProtocol? { get set }
     var users: [User] { get set }
-    var savedUsers: [User] { get set }
+    var savedUsers: Results<User> { get set }
     var currentPageNumber: Int { get set }
     var userDataType: UserDataType { get set}
     
     func pullToRefreshSwipe()
     func loadMoreSwipe()
     func didSelect(_ index: Int)
+    func didSelectSearchResult(_ user: User)
 }
 
 //MARK: Interactor -

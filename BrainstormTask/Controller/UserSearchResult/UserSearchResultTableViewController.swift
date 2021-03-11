@@ -10,12 +10,37 @@
 
 import UIKit
 
-class UserSearchResultTableViewController: UITableViewController, UserSearchResultViewProtocol {
+protocol UserSearchResultTableViewControllerDelegate: class {
+    func didSelectResult(_ controller: UserSearchResultTableViewController, user: User)
+}
 
-	var presenter: UserSearchResultPresenterProtocol?
+class UserSearchResultTableViewController: UITableViewController {
 
+    var users: [User] = []
+    weak var delegate: UserSearchResultTableViewControllerDelegate?
+    
 	override func viewDidLoad() {
         super.viewDidLoad()
+        self.tableView.register(cellNib: UserTableViewCell.self)
     }
 
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.users.count
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.cell(cell: UserTableViewCell.self, for: indexPath)
+        let user = self.users[indexPath.row]
+        cell.update(user)
+        return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 102
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.delegate?.didSelectResult(self, user: self.users[indexPath.row])
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
 }

@@ -16,7 +16,7 @@ class UsersViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
-    fileprivate var searchController: UISearchController!
+    var searchController: UISearchController!
     fileprivate var refresher: IQPullToRefresh!
     fileprivate(set) var resultsTableController: UserSearchResultTableViewController!
    
@@ -24,6 +24,11 @@ class UsersViewController: UIViewController {
         super.viewDidLoad()
         self.setup()
         self.setupTableViewInfinity()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.tableView.reloadData()
     }
     
     fileprivate func setupTableViewInfinity() {
@@ -45,6 +50,7 @@ class UsersViewController: UIViewController {
     fileprivate func setup() {
         self.navigationItem.title = "Users"
         self.resultsTableController = Utility.instantiate(fromStoryboard: UserSearchResultTableViewController.self)
+        self.resultsTableController.delegate = self
         self.searchController = UISearchController(searchResultsController: resultsTableController)
         self.searchController.searchResultsUpdater = self
         self.searchController.searchBar.autocapitalizationType = .none
@@ -123,4 +129,12 @@ extension UsersViewController: UsersViewProtocol {
         self.tableView.reloadData()
     }
     
+}
+
+//MARK:- UserSearchResultTableViewControllerDelegate
+extension UsersViewController: UserSearchResultTableViewControllerDelegate {
+    
+    func didSelectResult(_ controller: UserSearchResultTableViewController, user: User) {
+        self.presenter?.didSelectSearchResult(user)
+    }
 }

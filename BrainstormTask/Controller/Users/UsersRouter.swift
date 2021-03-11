@@ -30,7 +30,7 @@ class UsersRouter: UsersWireframeProtocol {
     }
     
     func pushToUserDtail(_ user: User) {
-        let userDetailRouter = UserDetailRouter.createModule(user)
+        let userDetailRouter = UserDetailRouter.createModule(user.clone())
         self.viewController?.navigationController?.pushViewController(userDetailRouter, animated: true)
     }
 }

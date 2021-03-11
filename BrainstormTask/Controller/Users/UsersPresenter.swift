@@ -10,6 +10,7 @@
 
 import UIKit
 import SwiftyJSON
+import RealmSwift
 
 enum UserDataType: Int {
     case user
@@ -24,8 +25,9 @@ class UsersPresenter: UsersPresenterProtocol {
 
     var currentPageNumber: Int
     var users: [User]
-    var savedUsers: [User]
+    var savedUsers: Results<User>
     var userDataType: UserDataType
+    private var tokenUser: NotificationToken? = nil
     
     init(interface: UsersViewProtocol, interactor: UsersInteractorInputProtocol?, router: UsersWireframeProtocol) {
         self.view = interface
@@ -33,8 +35,17 @@ class UsersPresenter: UsersPresenterProtocol {
         self.router = router
         self.currentPageNumber = 1
         self.users = []
-        self.savedUsers = []
         self.userDataType = .user
+        
+        let realm = try! Realm()
+        self.savedUsers = realm.objects(User.self)
+        self.tokenUser?.invalidate()
+        
+        self.savedUsers.safeObserve { (changes) in
+            print("realm changed notification")
+        } completion: { (token) in
+            self.tokenUser = token
+        }
     }
 
     func pullToRefreshSwipe() {
@@ -49,6 +60,10 @@ class UsersPresenter: UsersPresenterProtocol {
     
     func didSelect(_ index: Int) {
         let user = self.userDataType == .user ? self.users[index] : self.savedUsers[index]
+        self.router.pushToUserDtail(user)
+    }
+    
+    func didSelectSearchResult(_ user: User) {
         self.router.pushToUserDtail(user)
     }
 }

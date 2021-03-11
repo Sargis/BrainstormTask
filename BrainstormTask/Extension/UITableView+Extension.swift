@@ -21,5 +21,14 @@ extension UITableView {
         let nib = UINib.init(nibName: `class`.nameOfClass, bundle: nil)
         self.register(nib, forCellReuseIdentifier: `class`.nameOfClass)
     }
+    
+    func reloadSections(_ sections: IndexSet, with animation: UITableView.RowAnimation, completion: @escaping ()->()) {
+        CATransaction.begin()
+        self.beginUpdates()
+        CATransaction.setCompletionBlock(completion)
+        self.reloadSections(sections, with: animation)
+        self.endUpdates()
+        CATransaction.commit()
+    }
 }
 
