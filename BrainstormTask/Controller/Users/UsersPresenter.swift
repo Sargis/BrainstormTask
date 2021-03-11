@@ -11,6 +11,11 @@
 import UIKit
 import SwiftyJSON
 
+enum UserDataType: Int {
+    case user
+    case saved
+}
+
 class UsersPresenter: UsersPresenterProtocol {
 
     weak private var view: UsersViewProtocol?
@@ -20,6 +25,7 @@ class UsersPresenter: UsersPresenterProtocol {
     var currentPageNumber: Int
     var users: [User]
     var savedUsers: [User]
+    var userDataType: UserDataType
     
     init(interface: UsersViewProtocol, interactor: UsersInteractorInputProtocol?, router: UsersWireframeProtocol) {
         self.view = interface
@@ -28,6 +34,7 @@ class UsersPresenter: UsersPresenterProtocol {
         self.currentPageNumber = 1
         self.users = []
         self.savedUsers = []
+        self.userDataType = .user
     }
 
     func pullToRefreshSwipe() {
@@ -41,7 +48,8 @@ class UsersPresenter: UsersPresenterProtocol {
     }
     
     func didSelect(_ index: Int) {
-        self.router.pushToUserDtail(self.users[index])
+        let user = self.userDataType == .user ? self.users[index] : self.savedUsers[index]
+        self.router.pushToUserDtail(user)
     }
 }
 

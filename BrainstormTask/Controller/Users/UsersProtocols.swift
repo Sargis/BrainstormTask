@@ -22,6 +22,7 @@ protocol UsersPresenterProtocol: class {
     var users: [User] { get set }
     var savedUsers: [User] { get set }
     var currentPageNumber: Int { get set }
+    var userDataType: UserDataType { get set}
     
     func pullToRefreshSwipe()
     func loadMoreSwipe()

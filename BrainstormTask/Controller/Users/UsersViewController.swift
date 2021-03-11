@@ -60,7 +60,11 @@ class UsersViewController: UIViewController {
     
     //MARK:- Actions
     @IBAction func segmentControlValueChangd(_ sender: UISegmentedControl) {
+        self.presenter!.userDataType = UserDataType.init(rawValue: sender.selectedSegmentIndex) ?? .saved
+        self.tableView.reloadSections([0], with: .automatic)
         
+        self.refresher.enablePullToRefresh = self.presenter!.userDataType == .user
+        self.refresher.enableLoadMore = self.presenter!.userDataType == .user
     }
 }
 
@@ -68,12 +72,13 @@ class UsersViewController: UIViewController {
 extension UsersViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.presenter?.users.count ?? 0
+        let count = self.presenter!.userDataType == .user ?  self.presenter!.users.count : self.presenter!.savedUsers.count
+        return count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.cell(cell: UserTableViewCell.self, for: indexPath)
-        let user = self.presenter!.users[indexPath.row]
+        let user = self.presenter!.userDataType == .user ? self.presenter!.users[indexPath.row] : self.presenter!.savedUsers[indexPath.row]
         cell.update(user)
         return cell
     }
@@ -84,6 +89,7 @@ extension UsersViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.presenter?.didSelect(indexPath.row)
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }
 
